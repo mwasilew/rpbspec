@@ -6,3 +6,4 @@
 
 .. [ref4] Apache Mynewt, Apache Mynewt project website <http://mynewt.apache.org>
 
+.. [ref5] 96boards IoT Specification, Version 1.0, September, 2016. It is available from `Linaro <http://www.96boards.org/ie-specification>`_

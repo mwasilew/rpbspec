@@ -21,7 +21,7 @@ The board *shall* boot from eMMC. The board *should* boot from SD card.
 Bluetooth
 ---------
 
-Bluetooth *shall* be supported. 
+Bluetooth *shall* be supported.
 
 The device *shall* be possible to do the following bluetooth actions:
 
