@@ -32,10 +32,11 @@ source information.
 
 This specification, the |spec-fullname| (|spec|),
 
-**Organization of this Document**
+**Organization of this document**
 
 * Chapter :ref:`chapter-introduction` introduces the architecture being
   specified by |spec|.
+* Chapter :ref:`chapter-common` specifies common requirements for all reference platforms |spec|.
 * Chapter :ref:`chapter-iot` specifies IoT version of the |spec|.
 * Chapter :ref:`chapter-consumer` specifies Consumer version of the |spec|.
 * Chapter :ref:`chapter-enterprise` specifies Enterpise version of the |spec|.

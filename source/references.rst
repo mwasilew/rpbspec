@@ -2,3 +2,7 @@
 
 .. [ref2] 96boards CE Specification, Version 1.0, January, 2015. It is available from `Linaro <http://www.96boards.org/ce-specification>`_
 
+.. [ref3] Linux Foundation Zephyr Project, Zephyr Project website <https://www.zephyrproject.org>
+
+.. [ref4] Apache Mynewt, Apache Mynewt project website <http://mynewt.apache.org>
+
