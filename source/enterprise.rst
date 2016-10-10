@@ -17,13 +17,17 @@ Power cycle
 -----------
 
 The following actions *shall* be possible using software:
-  Shutdown
-  Reboot
+
+ - Shutdown
+ - Reboot
 
 Virtualization
 --------------
 
-The board *shall* support Linux virtualization. Bootloaders and firmware *shall not* rely on using/reserving EL2 for their use, but must leave this available to the OS. In particular it *shall* be possible to run 32 and 64 bit Linux guest in system emulation. The following virtualization tools *shall* be provided:
+The board *shall* support Linux virtualization: Bootloaders and firmware *shall not* rely on using/reserving EL2 for their use, but must leave this available to the OS. In particular it *shall* be possible to run 32 and 64 bit Linux guest in system emulation. 
+
+The following virtualization tools *shall* be provided:
+
  - QEMU
  - LibVirt
  - Bridge Utilities
@@ -37,6 +41,7 @@ ARM optimized server stack
 --------------------------
 
 It *shall* be possible to run the following software stacks using Reference Software Platform:
+
  - PHP
  - MySQL
  - Apache
@@ -47,6 +52,7 @@ Development tools
 -----------------
 
 The following development tools *shall* be available
+
  - GNU C/C++ compiler
  - Make
  - LIBC Development Libraries and Header files

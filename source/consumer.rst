@@ -6,7 +6,7 @@ Consumer Edition Reference Platform
 Hardware
 --------
 
-The hardware that Consumer Reference Platform runs on *shoul* be 96boards compliant [ref2]_. The following requirements assume that software runs on 96boards CE compliant hardware.
+The hardware that Consumer Reference Platform runs on *should* be 96Boards compliant [ref2]_. The following requirements assume that software runs on 96Boards CE compliant hardware.
 
 Accelerated graphics support
 ----------------------------
@@ -21,11 +21,14 @@ The board *shall* boot from eMMC. The board *should* boot from SD card.
 Bluetooth
 ---------
 
-Bluetooth *shall* be supported. It *shall* be possible to do the following actions:
-  Scanning
-  Pairing
-  Audio Streaming (A2DP)
-  File transfer (FTP)
+Bluetooth *shall* be supported. 
+
+The device *shall* be possible to do the following bluetooth actions:
+
+ - Scanning
+ - Pairing
+ - Audio Streaming (A2DP)
+ - File transfer (FTP)
 
 List of the reference 3rd party hardware for testing the above mentioned features will be provided as appendix.
 
@@ -33,9 +36,10 @@ USB
 ---
 
 The following USB device types *shall* be supported in the software:
-  HID
-  Mass storage device
-  Ethernet
+
+ - HID
+ - Mass storage device
+ - Ethernet
 
 WiFi [Scanning, Profiles, Downloading]
 SD [SD-HC, SD Read/Write (ext2), SD Read/Write (fat32)
@@ -44,8 +48,9 @@ Power cycle
 -----------
 
 The following actions *shall* be possible using software:
-  Shutdown
-  Reboot
+
+ - Shutdown
+ - Reboot
 
 LEDs
 ----
@@ -61,3 +66,4 @@ User interface
 --------------
 
 Graphical user interface (GUI) software builds *shall* be provided. Builds without GUI *may* be provided.
+
