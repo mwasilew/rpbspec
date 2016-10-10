@@ -1,0 +1,4 @@
+.. [ref1] SBBR Specification, Version 1.0, March 8, 2016. It is available from `ARM <http://infocenter.arm.com/help/topic/com.arm.doc.den0044b/DEN0044B_Server_Base_Boot_Requirements.pdf>`_
+
+.. [ref2] 96boards CE Specification, Version 1.0, January, 2015. It is available from `Linaro <http://www.96boards.org/ce-specification>`_
+
