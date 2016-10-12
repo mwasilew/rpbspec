@@ -40,6 +40,7 @@ This specification, the |spec-fullname| (|spec|),
 * Chapter :ref:`chapter-iot` specifies IoT version of the |spec|.
 * Chapter :ref:`chapter-consumer` specifies Consumer version of the |spec|.
 * Chapter :ref:`chapter-enterprise` specifies Enterpise version of the |spec|.
+* Chapter :ref:`chapter-automation` specifies requirements for test automation.
 
 **Conventions Used in this Document**
 

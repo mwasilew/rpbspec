@@ -47,8 +47,8 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Reference Software Platform Specification'
-copyright = u'2016, Linaro Inc.'
-author = u'Linaro Inc.'
+copyright = u'2016, Linaro Ltd.'
+author = u'Linaro Ltd.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -210,8 +210,11 @@ htmlhelp_basename = 'ReferencePlatformSpecificationdoc'
 # -- Options for LaTeX output ---------------------------------------------
 
 latex_elements = {
-# The paper size ('letterpaper' or 'a4paper').
-#'papersize': 'letterpaper',
+  'classoptions': ',oneside',
+  'babel': '\\usepackage[english]{babel}',
+
+  # The paper size ('letterpaper' or 'a4paper').
+  'papersize': 'a4paper',
 
 # The font size ('10pt', '11pt' or '12pt').
 #'pointsize': '10pt',
@@ -228,7 +231,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     (master_doc, 'ReferencePlatformSpecification.tex', u'Reference Platform Specification Documentation',
-     u'Milosz Wasilewski', 'manual'),
+     u'Linaro Ltd.', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

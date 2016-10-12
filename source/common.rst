@@ -3,16 +3,19 @@
 Common Requirements
 ===================
 
-All supported targets *shall* be built from a multi-platform configuration
+[CM 0] All supported targets *shall* be built from a multi-platform configuration
 
 Boot architecture
 -----------------
 
-At least one open source implementation *shall* be available
+[CM 1.0] At least one open source implementation *shall* be available
 
 Kernel
 ------
 
-Supported boards *should* use an unmodified kernel.org mainline, stable or longterm (latest two releases)
-kernel. A Linaro or vendor-supported kernel with additional patches against a kernel.org mainline, stable or longterm (latest two releases) kernel *may* be used.
+[CM 2.0] Supported boards *shall* use unmodified Reference Platform Kernel (RPK) [ref6]_. Builds that don't use RPK are derivative of Reference Software Platform.
 
+Robustness
+----------
+
+[CM 3.0] Software running on the board *should not* shutdown or reboot on it's own.
