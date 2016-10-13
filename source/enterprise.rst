@@ -6,12 +6,87 @@ Enterprise Edition Reference Platform
 Hardware
 --------
 
-[EE1.0] The hardware that Enterprise Reference Platform runs on *shall* be SBBR compliant [ref1]_.
+[EE1.0] The hardware that Enterprise Reference Platform runs on *shall* be
+SBBR compliant [ref1]_.
 
 Boot
 ----
 
-[EE2.0] The board *shall* be able to boot using PXE. [EE2.1]When OS is installed to the hard drive, the board *shall* be able to boot from this device.
+[EE2.0] The board *shall* be able to boot using PXE. [EE2.1]When OS is installed
+to the hard drive, the board *shall* be able to boot from this device.
+
+Kernel
+------
+
+Kernel support is required for the following components:
+
++------------------+--------+
+| Component        | Status |
++==================+========+
+| uart             | X      |
++------------------+--------+
+| regulators       | X      |
++------------------+--------+
+| watchdog         | X      |
++------------------+--------+
+| clocks           | X      |
++------------------+--------+
+| runtime PM       |        |
++------------------+--------+
+| suspend/resume   |        |
++------------------+--------+
+| genpd            |        |
++------------------+--------+
+| cpuidle          |        |
++------------------+--------+
+| cpufreq          |        |
++------------------+--------+
+| SATA             | X      |
++------------------+--------+
+| microSD          |        |
++------------------+--------+
+| eMMC             |        |
++------------------+--------+
+| framebuffer      |        |
++------------------+--------+
+| hdmi             |        |
++------------------+--------+
+| hdmi audio       |        |
++------------------+--------+
+| gpu              |        |
++------------------+--------+
+| spi              | X      |
++------------------+--------+
+| i2c              | X      |
++------------------+--------+
+| gpio             | X      |
++------------------+--------+
+| dsi              |        |
++------------------+--------+
+| csi              |        |
++------------------+--------+
+| usb otg          |        |
++------------------+--------+
+| usb host         | X      |
++------------------+--------+
+| usb device       |        |
++------------------+--------+
+| usb ethernet     | X      |
++------------------+--------+
+| wifi             | X      |
++------------------+--------+
+| bluetooth        | X      |
++------------------+--------+
+| onboard ethernet | X      |
++------------------+--------+
+| pwm              | X      |
++------------------+--------+
+| pcie             | X      |
++------------------+--------+
+| big endian       | X      |
++------------------+--------+
+| thermal          | X      |
++------------------+--------+
 
 Power cycle
 -----------
@@ -25,17 +100,29 @@ The following actions *shall* be possible using software:
 Storage
 -------
 
-[EE4.0] It *shall* be possible to read from and write data to the hard drive. [EE4.1]It *shall* also be possible to use at least software RAID capabilities.
+[EE4.0] It *shall* be possible to read from and write data to the hard drive.
+
+[EE4.1] It *shall* also be possible to use at least software RAID capabilities.
 
 Networking
 ----------
 
-[EE5.0] It *shall* be possible to download and upload data using network interfaces on the board.
+[EE5.0] It *shall* be possible to download and upload data using network
+interfaces on the board.
 
 Virtualization
 --------------
 
-[EE 6.0] The board *shall* support Linux virtualization: Bootloaders and firmware *shall not* rely on using/reserving EL2 for their use, but must leave this available to the OS. In particular it *shall* be possible to run 32 and 64 bit Linux guest in system emulation.
+[EE 6.0] The board *shall* support Linux virtualization: Bootloaders and
+firmware *shall not* rely on using/reserving EL2 for their use, but must leave
+this available to the OS. In particular it *shall* be possible to run 32 and 64
+bit Linux guest in system emulation.
+
+The following features *shall* be enabled:
+ - Kernel entered at EL2
+ - CNTFRQ_EL0 set to the timer frequency on all CPUs
+ - CNTVOFF_EL2 set to 0 on all CPUs
+ - All interrupts configured to be non-secure
 
 The following virtualization tools *shall* be provided:
 
@@ -46,7 +133,8 @@ The following virtualization tools *shall* be provided:
 PCIe
 ----
 
-[EE 7.0] The board *shall* support PCIe cards. The list of the reference cards used for testing this feature will be provided as appendix
+[EE 7.0] The board *shall* support PCIe cards. The list of the reference cards
+used for testing this feature will be provided as appendix
 
 Container tools
 ---------------
@@ -58,7 +146,8 @@ It *shall* be possible to use container tools:
 ARM optimized server stack
 --------------------------
 
-It *shall* be possible to run the following software stacks using Reference Software Platform:
+It *shall* be possible to run the following software stacks using Reference
+Software Platform:
 
  - PHP [EE 9.0]
  - MySQL [EE 9.1]
