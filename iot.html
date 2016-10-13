@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. IoT Reference Platform &mdash; Reference Software Platform Specification 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Reference Software Platform Specification 1 documentation" href="index.html" />
+    <link rel="next" title="5. Consumer Edition Reference Platform" href="consumer.html" />
+    <link rel="prev" title="2. Common Components" href="common.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iot-reference-platform">
+<span id="chapter-iot"></span><h1>4. IoT Reference Platform<a class="headerlink" href="#iot-reference-platform" title="Permalink to this headline">¶</a></h1>
+<p>IoT Reference Platform does not include <em>common</em>/<em>kernel</em> section.</p>
+<div class="section" id="hardware">
+<h2>4.1. Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>[IO 1.0] The hardware that the IoT Reference Platform runs on <em>should</em> be
+96Boards compliant <a class="reference internal" href="references.html#ref5" id="id1">[ref5]</a>. The following requirements assume that software runs
+on 96Boards IoT compliant hardware.</p>
+</div>
+<div class="section" id="zephyr">
+<h2>4.2. Zephyr<a class="headerlink" href="#zephyr" title="Permalink to this headline">¶</a></h2>
+<p>Zephyr Project is a small, scalable real-time operating system for use on
+resource-constrained systems supporting multiple architectures <a class="reference internal" href="references.html#ref3" id="id2">[ref3]</a>.
+Developers are able to tailor their optimal solution. As a true open source
+project, the community can evolve the Zephyr Project to support new hardware,
+developer tools, sensor and device drivers.  Advancements in security, device
+management capabilities, connectivity stacks and file systems can be easily
+implemented.</p>
+</div>
+<div class="section" id="mynewt">
+<h2>4.3. MyNewt<a class="headerlink" href="#mynewt" title="Permalink to this headline">¶</a></h2>
+<p>Apache Mynewt is a real-time, modular operating system for connected IoT devices
+that need to operate for long periods of time under power, memory, and storage
+constraints. The first connectivity stack offered is BLE 4.2 <a class="reference internal" href="references.html#ref4" id="id3">[ref4]</a>.</p>
+<p>The IoT Reference Platform <em>shall</em> provide a open-source bootloader that
+implements a dual-bank architecture enabling active and passive application
+execution.</p>
+</div>
+<div class="section" id="ota-updates">
+<h2>4.4. OTA updates<a class="headerlink" href="#ota-updates" title="Permalink to this headline">¶</a></h2>
+<p>[IO 4.0] The IoT Reference Platform <em>shall</em> provide a reference/sample
+implementation enabling a secure, OTA (over-the-air) update.  When running the
+reference application enabling OTA, [IO 4.1] the application <em>shall</em> regularly
+check with the IoT sw provisioning server, i.e. Hawkbit, over HTTP to determine
+if there is an image updated available for deployment. [IO 4.2] The OTA update
+<em>shall</em> load software onto the currently passive partition and the device will
+reboot. [IO 4.3] If the deployment is corrupt or incomplete, the device <em>shall</em>
+boot from the original partition.</p>
+<p>[IO 4.4] The device <em>shall</em> communicate via bluetooth to an IoT gateway that has
+a route to the Hawkbit server.</p>
+</div>
+<div class="section" id="sdk">
+<h2>4.5. SDK<a class="headerlink" href="#sdk" title="Permalink to this headline">¶</a></h2>
+<p>[IO 5.0] The IoT Reference Platform <em>shall</em> provide all of the necessary tools
+and environment with appropriate documentation describing, in detail, how to
+rebuild and use the IoT Reference Platform components.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. IoT Reference Platform</a><ul>
+<li><a class="reference internal" href="#hardware">4.1. Hardware</a></li>
+<li><a class="reference internal" href="#zephyr">4.2. Zephyr</a></li>
+<li><a class="reference internal" href="#mynewt">4.3. MyNewt</a></li>
+<li><a class="reference internal" href="#ota-updates">4.4. OTA updates</a></li>
+<li><a class="reference internal" href="#sdk">4.5. SDK</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="common.html" title="previous chapter">2. Common Components</a></li>
+      <li>Next: <a href="consumer.html" title="next chapter">5. Consumer Edition Reference Platform</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/iot.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Linaro Ltd..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/iot.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

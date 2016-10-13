@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Common Components &mdash; Reference Software Platform Specification 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Reference Software Platform Specification 1 documentation" href="index.html" />
+    <link rel="next" title="4. IoT Reference Platform" href="iot.html" />
+    <link rel="prev" title="1. Introduction" href="introduction.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="common-components">
+<span id="chapter-common"></span><h1>2. Common Components<a class="headerlink" href="#common-components" title="Permalink to this headline">¶</a></h1>
+<p>The following common Components are specified for the release RPBs</p>
+<blockquote>
+<div><ul class="simple">
+<li>ARMv8 Open source bootloader</li>
+<li>OP-TEE Open Source Trusted Execution Environment (option)</li>
+<li>Linux kernel - Reference Platform Kernel</li>
+<li>Blend distribution</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="common-requirements">
+<h1>3. Common Requirements<a class="headerlink" href="#common-requirements" title="Permalink to this headline">¶</a></h1>
+<p>[CM 0] All supported targets <em>shall</em> be built from a multi-platform configuration</p>
+<div class="section" id="boot-architecture">
+<h2>3.1. Boot architecture<a class="headerlink" href="#boot-architecture" title="Permalink to this headline">¶</a></h2>
+<p>[CM 1.0] At least one open source implementation <em>shall</em> be available.</p>
+<div class="section" id="armv8-open-source-bootloader">
+<h3>3.1.1. ARMv8 Open Source Bootloader<a class="headerlink" href="#armv8-open-source-bootloader" title="Permalink to this headline">¶</a></h3>
+<p>The open source reference bootloader consists of the following components:</p>
+<dl class="glossary docutils">
+<dt id="term-arm-trusted-firmware-atf">ARM Trusted Firmware (ATF)</dt>
+<dd>This is for 64 bit ARMv8A SoCs and provides boot authentication, Power
+State Coordination Interface (PSCI), SMC calling convention and an
+interface to the optional OP-TEE (or other Trusted OS). Source code is
+maintained at:
+<a class="reference external" href="https://github.com/ARM-software/arm-trusted-firmware">https://github.com/ARM-software/arm-trusted-firmware</a>.</dd>
+<dt id="term-tianocore-edk2-uefi">Tianocore/edk2 UEFI</dt>
+<dd>This provides the industry standard UEFI implementation. Device Tree
+bindings are used to provide the SoC description for the CE RPBs and
+ACPI is used to provide the description for the EE RPB. Source code is
+maintained at:
+<a class="reference external" href="https://github.com/96boards/edk2">https://github.com/96boards/edk2</a></dd>
+<dt id="term-grub2">GRUB2</dt>
+<dd>Provides standardized boot options configuration.
+Network boot is provided via USB ethernet dongle (Mobile) or built in
+ethernet (Enterprise)</dd>
+<dt id="term-fastboot">Fastboot</dt>
+<dd>Fastboot support is provided for image download and update over USB.</dd>
+<dt id="term-op-tee">OP-TEE</dt>
+<dd>An option will be available to integrate the open source OP-TEE trusted
+OS. Source code is available at:
+<a class="reference external" href="https://github.com/op-tee">https://github.com/op-tee</a></dd>
+</dl>
+</div>
+<div class="section" id="boot-delay">
+<h3>3.1.2. Boot Delay<a class="headerlink" href="#boot-delay" title="Permalink to this headline">¶</a></h3>
+<p>[CM 1.1] There <em>should not</em> be a boot “delay” to wait for user input. Rather
+if a key is pressed at boot time (or no bootable file is found) the console
+should break into the UEFI menu. There should be a visual indication of this
+in case a UART is not in use (for example turn all user LEDs on).</p>
+</div>
+</div>
+<div class="section" id="op-tee-open-source-trusted-execution-environment">
+<h2>3.2. OP-TEE Open Source Trusted Execution Environment<a class="headerlink" href="#op-tee-open-source-trusted-execution-environment" title="Permalink to this headline">¶</a></h2>
+<p>This is an optional component. By default it will not be configured into an RPB.
+However. documentation shall be provided with instructions on how to install it.</p>
+<p>Instructions for the current OP-TEE build for HiKey can be found here:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/OP-TEE/optee_os">https://github.com/OP-TEE/optee_os</a></li>
+<li><a class="reference external" href="https://github.com/OP-TEE/manifest">https://github.com/OP-TEE/manifest</a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="environments">
+<h3>3.2.1. Environments<a class="headerlink" href="#environments" title="Permalink to this headline">¶</a></h3>
+<p>OP-TEE runs plain Linux by default on both ARMv7 and ARMv8. But there is also
+support to run it on Android. In optee_client there is an Android makefile
+(Android.mk), which has been used when running OP-TEE on the Allwinner A80
+platform as an  example.</p>
+</div>
+<div class="section" id="memory-requirements">
+<h3>3.2.2. Memory requirements<a class="headerlink" href="#memory-requirements" title="Permalink to this headline">¶</a></h3>
+<dl class="glossary docutils">
+<dt id="term-sram">SRAM</dt>
+<dd>Hardware using OP-TEE <em>should</em> have at least 256kB. We can go lower than
+that but that will require some manual configuration. Lower than 200kB
+would require us to optimize the code more and/or add more compile time
+flags.</dd>
+<dt id="term-ddr">DDR</dt>
+<dd>Configurable, but the default setup uses 32MB.</dd>
+<dt id="term-use-of-console-i-o">Use of Console I/O</dt>
+<dd>During development it is preferable to have two UARTs, one dedicated
+for normal world and one for secure world.</dd>
+<dt id="term-irq-fiq">IRQ/FIQ</dt>
+<dd>OP-TEE handles both IRQ and FIQ and will re-route IRQ’s that was
+supposed to go to normal world and the Linux kernel.</dd>
+</dl>
+</div>
+<div class="section" id="armv8-software-components-used-by-op-tee">
+<h3>3.2.3. ARMv8 software components used by OP-TEE<a class="headerlink" href="#armv8-software-components-used-by-op-tee" title="Permalink to this headline">¶</a></h3>
+<dl class="glossary docutils">
+<dt id="term-arm-trusted-firmware">ARM Trusted Firmware</dt>
+<dd>Serves as secure monitor. OP-TEE uses a fork since the official ARM-TF
+does not have  support for parsing OP-TEE’s header.</dd>
+<dt id="term-tianocore-edk2">Tianocore EDK2</dt>
+<dd>Boot loader.</dd>
+<dt id="term-build">build</dt>
+<dd>Helper makefiles to build OP-TEE.</dd>
+<dt id="term-busybox">busybox</dt>
+<dd>Used together with gen_roots.</dd>
+<dt id="term-foundation-platformpkg-optional">Foundation_Platformpkg (optional)</dt>
+<dd>When OP-TEE should be used on FVP.</dd>
+<dt id="term-gen-rootfs">gen_rootfs</dt>
+<dd>Used to create the main root fs. Will work with any root fs, but this
+is very small (7MB).</dd>
+<dt id="term-linux-kernel-later-than-3-18">Linux kernel (later than 3.18)</dt>
+<dd>There aren’t many dependencies to other interfaces in kernel in
+OP-TEE’s kernel driver. But there were a couple of API changes (DMA and
+ioremap) after 3.18 and 4.0 which the current driver adheres to. It
+still is easy to backport to older kernels is needed.</dd>
+<dt id="term-optee-client">optee_client</dt>
+<dd>User space client library for OP-TEE.</dd>
+<dt id="term-optee-linuxdriver">optee_linuxdriver</dt>
+<dd>Out of tree kernel module for OP-TEE.</dd>
+<dt id="term-optee-os">optee_os</dt>
+<dd>The Trusted OS for OP-TEE.</dd>
+<dt id="term-optee-test">optee_test</dt>
+<dd>Test suite for testing OP-TEE.</dd>
+<dt id="term-repo">repo</dt>
+<dd>We are using <a class="reference external" href="http://source.android.com/source/using-repo.html">repo</a>
+to set up our environment. There are a couple different manifests for
+various targets.</dd>
+<dt id="term-toolchains">Toolchains</dt>
+<dd><dl class="first last docutils">
+<dt>We are using both a mix of 32- and 64-bit compilers:</dt>
+<dd><ul class="first last simple">
+<li>gcc-linaro-aarch64-linux-gnu-4.9-2014.08_linux.tar.xz:
+For user space</li>
+<li>gcc-linaro-aarch64-none-elf-4.9-2014.07_linux.tar.xz:
+For kernel, ARM-Trusted-Firmware, Tianocore.</li>
+<li>gcc-linaro-arm-linux-gnueabihf-4.9-2014.08_linux.tar.xz
+For secure side code (optee_os)</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</div>
+<div class="section" id="armv7-key-differences">
+<h3>3.2.4. ARMv7 Key Differences<a class="headerlink" href="#armv7-key-differences" title="Permalink to this headline">¶</a></h3>
+<dl class="glossary docutils">
+<dt id="term-bios-qemu-tz-arm">bios_qemu_tz_arm</dt>
+<dd>Bios blob for QEMU that parses the device tree blob before giving the
+DT blob to the kernel.</dd>
+<dt id="term-qemu-optional">QEMU (Optional)</dt>
+<dd>When running OP-TEE in an emulated ARMv7 environment.</dd>
+<dt id="term-soc-term-optional">soc_term (optional)</dt>
+<dd>Handles serial port for secure and non-secure side when using OP-TEE.</dd>
+<dt id="term-25">Toolchains</dt>
+<dd>gcc-linaro-arm-linux-gnueabihf-4.9-2014.08_linux.tar.xz
+Everything, since we are only running in 32bit mode here.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="kernel">
+<h2>3.3. Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h2>
+<p>[CM 2.0] Supported boards <em>shall</em> use unmodified Reference Platform Kernel
+(RPK) <a class="reference internal" href="references.html#ref6" id="id1">[ref6]</a>. Builds that don&#8217;t use RPK are derivative of Reference Software
+Platform.</p>
+</div>
+<div class="section" id="distribution">
+<h2>3.4. Distribution<a class="headerlink" href="#distribution" title="Permalink to this headline">¶</a></h2>
+<p>The following distribution blends <em>shall</em> be provided:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Debian</li>
+<li>CentOS</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="robustness">
+<h2>3.5. Robustness<a class="headerlink" href="#robustness" title="Permalink to this headline">¶</a></h2>
+<p>[CM 3.0] Software running on the board <em>should not</em> shutdown or reboot on it&#8217;s
+own.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. Common Components</a></li>
+<li><a class="reference internal" href="#common-requirements">3. Common Requirements</a><ul>
+<li><a class="reference internal" href="#boot-architecture">3.1. Boot architecture</a><ul>
+<li><a class="reference internal" href="#armv8-open-source-bootloader">3.1.1. ARMv8 Open Source Bootloader</a></li>
+<li><a class="reference internal" href="#boot-delay">3.1.2. Boot Delay</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#op-tee-open-source-trusted-execution-environment">3.2. OP-TEE Open Source Trusted Execution Environment</a><ul>
+<li><a class="reference internal" href="#environments">3.2.1. Environments</a></li>
+<li><a class="reference internal" href="#memory-requirements">3.2.2. Memory requirements</a></li>
+<li><a class="reference internal" href="#armv8-software-components-used-by-op-tee">3.2.3. ARMv8 software components used by OP-TEE</a></li>
+<li><a class="reference internal" href="#armv7-key-differences">3.2.4. ARMv7 Key Differences</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kernel">3.3. Kernel</a></li>
+<li><a class="reference internal" href="#distribution">3.4. Distribution</a></li>
+<li><a class="reference internal" href="#robustness">3.5. Robustness</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="introduction.html" title="previous chapter">1. Introduction</a></li>
+      <li>Next: <a href="iot.html" title="next chapter">4. IoT Reference Platform</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/common.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Linaro Ltd..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/common.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

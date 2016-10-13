@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. Introduction &mdash; Reference Software Platform Specification 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Reference Software Platform Specification 1 documentation" href="index.html" />
+    <link rel="next" title="2. Common Components" href="common.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="revhistory.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<span id="chapter-introduction"></span><h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose-and-scope">
+<h2>1.1. Purpose and Scope<a class="headerlink" href="#purpose-and-scope" title="Permalink to this headline">¶</a></h2>
+<p>The goal of the Reference Software Platform Lead project is to deliver Linaro
+output for ARM SoCs using 96Boards or other compliant hardware for use cases
+ranging from the Embedded to the Enterprise segments. The releases may contain
+bootloader, kernel, distribution and/or user level middleware/applications. The
+releases will comprise loadable software for 96Boards products or other
+compliant hardware, reference source code, and documentation on building the
+source code, any hardware dependencies including porting tips for other SoCs,
+and configurations chosen for the reference builds.</p>
+<p>The Reference Software Platform releases are expected to be used by Linaro
+members for product development, and by the wider community (i.e.
+<a class="reference external" href="https://www.google.com/url?q=http://96boards.org&amp;sa=D&amp;ust=1475849114829000&amp;usg=AFQjCNFTZx7XEZjxmTe105D8WrFoTdKeBw">96Boards.org</a>
+). Releases will be provided for different segments - for example an Enterprise
+release might include reference UEFI/ACPI software to boot CentOS “out of the
+box” and a configuration of OpenStack and Hadoop, configured to run optimally
+on a 96Boards EE hardware product, with documentation on hardware dependencies,
+configuration and build from source information.</p>
+</div>
+<div class="section" id="deliverables">
+<h2>1.2. Deliverables<a class="headerlink" href="#deliverables" title="Permalink to this headline">¶</a></h2>
+<p>The Reference software platform will consist of a set of “Building Blocks” that
+make up a given Reference Software Platform Build. The following nomenclature
+will be used in this document.</p>
+<dl class="glossary docutils">
+<dt id="term-reference-platform-build-rpb">Reference Platform Build (RPB)</dt>
+<dd><p class="first">An end to end software implementation delivered on a reference 96Boards
+hardware product. Note that where possible this will include an
+“off-the-shelf” 3rd party distribution without modification.</p>
+<p class="last">Example: Bootloader, kernel and AOSP delivered as an RPB on HiKey.</p>
+</dd>
+<dt id="term-component">Component</dt>
+<dd><p class="first">A software building block or component that is used to create an RPB.</p>
+<p class="last">Examples: An ARM Trusted Firmware based bootloader, OP-TEE, an OpenStack
+build</p>
+</dd>
+</dl>
+<p>This specification, the Reference Software Platform (RefPlatform),</p>
+<p><strong>Organization of this document</strong></p>
+<ul class="simple">
+<li>Chapter <a class="reference internal" href="#chapter-introduction"><span>1</span></a> introduces the architecture being
+specified by RefPlatform.</li>
+<li>Chapter <a class="reference internal" href="common.html#chapter-common"><span>2</span></a> specifies common requirements for all reference
+platforms RefPlatform.</li>
+<li>Chapter <a class="reference internal" href="iot.html#chapter-iot"><span>4</span></a> specifies IoT version of the RefPlatform.</li>
+<li>Chapter <a class="reference internal" href="consumer.html#chapter-consumer"><span>5</span></a> specifies Consumer version of the RefPlatform.</li>
+<li>Chapter <a class="reference internal" href="enterprise.html#chapter-enterprise"><span>6</span></a> specifies Enterpise version of the RefPlatform.</li>
+<li>Chapter <a class="reference internal" href="automation.html#chapter-automation"><span>7</span></a> specifies requirements for test automation.</li>
+</ul>
+<p><strong>Conventions Used in this Document</strong></p>
+<p>The word <em>shall</em> is used to indicate mandatory requirements strictly to be
+followed in order to conform to the standard and from which no deviation is
+permitted (<em>shall</em> equals <em>is required to</em>).</p>
+<p>The word <em>should</em> is used to indicate that among several possibilities one is
+recommended as particularly suitable, without mentioning or excluding others;
+or that a certain course of action is preferred but not necessarily required;
+or that (in the negative form) a certain course of action is deprecated but not
+prohibited (<em>should</em> equals <em>is recommended that</em>).</p>
+<p>The word <em>may</em> is used to indicate a course of action permissible within the
+limits of the standard (<em>may</em> equals <em>is permitted</em>).</p>
+</div>
+<div class="section" id="definition-of-terms">
+<h2>1.3. Definition of Terms<a class="headerlink" href="#definition-of-terms" title="Permalink to this headline">¶</a></h2>
+<p>The following nomenclature will be used in this document.</p>
+<dl class="glossary docutils">
+<dt id="term-reference-software-platform">Reference Software Platform</dt>
+<dd>The Reference software platform will consist of a set of “Building
+Blocks” that make up a given Reference Software Platform Build.</dd>
+<dt id="term-3">Reference Platform Build (RPB)</dt>
+<dd><p class="first">An end to end software implementation delivered on a reference 96Boards
+hardware product. Note that where possible this will include an
+“off-the-shelf” 3rd party distribution without modification.</p>
+<p class="last">Example: Bootloader, kernel and Debian and applications &nbsp;delivered as an
+RPB on HiKey.</p>
+</dd>
+<dt id="term-4">Component</dt>
+<dd><p class="first">A software building block or component that is used to create an RPB.</p>
+<p class="last">Examples: An ARM Trusted Firmware based bootloader, OP-TEE, an OpenStack
+build</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. Introduction</a><ul>
+<li><a class="reference internal" href="#purpose-and-scope">1.1. Purpose and Scope</a></li>
+<li><a class="reference internal" href="#deliverables">1.2. Deliverables</a></li>
+<li><a class="reference internal" href="#definition-of-terms">1.3. Definition of Terms</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="revhistory.html" title="previous chapter">&lt;no title&gt;</a></li>
+      <li>Next: <a href="common.html" title="next chapter">2. Common Components</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/introduction.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Linaro Ltd..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/introduction.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

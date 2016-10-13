@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5. Consumer Edition Reference Platform &mdash; Reference Software Platform Specification 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="Reference Software Platform Specification 1 documentation" href="index.html" />
+    <link rel="next" title="6. Enterprise Edition Reference Platform" href="enterprise.html" />
+    <link rel="prev" title="4. IoT Reference Platform" href="iot.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="consumer-edition-reference-platform">
+<span id="chapter-consumer"></span><h1>5. Consumer Edition Reference Platform<a class="headerlink" href="#consumer-edition-reference-platform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hardware">
+<h2>5.1. Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>[CE 1.0] The hardware that Consumer Reference Platform runs on <em>should</em> be
+96Boards compliant <a class="reference internal" href="references.html#ref2" id="id1">[ref2]</a>. The following requirements assume that software runs
+on 96Boards CE compliant hardware.</p>
+</div>
+<div class="section" id="accelerated-graphics-support">
+<h2>5.2. Accelerated graphics support<a class="headerlink" href="#accelerated-graphics-support" title="Permalink to this headline">¶</a></h2>
+<p>[CE 2.0] Accelerated graphics drivers <em>shall</em> be fully supported either with
+open source code, or through royalty free binary drivers. If binary drivers are
+utilized, the vendor <em>shall</em> provide support to provide updated
+drivers/libraries to support new mainline Linux kernel features.</p>
+</div>
+<div class="section" id="boot">
+<h2>5.3. Boot<a class="headerlink" href="#boot" title="Permalink to this headline">¶</a></h2>
+<p>[CE 3.0] It <em>shall not</em> be necessary to connect console UART I/O to install an
+image into eMMC or microSD, or to startup a pre-installed Debian or AOSP image
+on eMMC or microSD card</p>
+</div>
+<div class="section" id="kernel">
+<h2>5.4. Kernel<a class="headerlink" href="#kernel" title="Permalink to this headline">¶</a></h2>
+<p>Kernel support is required for the following components:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Component</th>
+<th class="head">Status</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>uart</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>regulators</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>watchdog</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>clocks</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>runtime PM</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>suspend/resume</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>genpd</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>cpuidle</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>cpufreq</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>SATA</td>
+<td>depending on the hardware</td>
+</tr>
+<tr class="row-even"><td>microSD</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>eMMC</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>framebuffer</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>hdmi</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>hdmi audio</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>gpu</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>spi</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>i2c</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>gpio</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>dsi</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>csi</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>usb otg</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>usb host</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>usb device</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>usb ethernet</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>wifi</td>
+<td>X</td>
+</tr>
+<tr class="row-even"><td>bluetooth</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>onboard ethernet</td>
+<td>depending on the hardware</td>
+</tr>
+<tr class="row-even"><td>pwm</td>
+<td>X</td>
+</tr>
+<tr class="row-odd"><td>pcie</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>big endian</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>thermal</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="bluetooth">
+<h2>5.5. Bluetooth<a class="headerlink" href="#bluetooth" title="Permalink to this headline">¶</a></h2>
+<p>[CE 4.0] Bluetooth <em>shall</em> be supported.</p>
+<p>The device <em>shall</em> be possible to do the following bluetooth actions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Scanning [CE 4.1]</li>
+<li>Pairing [CE 4.2]</li>
+<li>Audio Streaming (A2DP) [CE 4.3]</li>
+<li>File transfer (FTP) [CE 4.4]</li>
+</ul>
+</div></blockquote>
+<p>List of the reference 3rd party hardware for testing the above mentioned
+features will be provided as appendix.</p>
+</div>
+<div class="section" id="usb">
+<h2>5.6. USB<a class="headerlink" href="#usb" title="Permalink to this headline">¶</a></h2>
+<p>The following USB device types <em>shall</em> be supported in the software:</p>
+<blockquote>
+<div><ul class="simple">
+<li>HID [CE 5.0]</li>
+<li>Mass storage device [CE 5.1]</li>
+<li>Ethernet [CE 5.2]</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="wifi">
+<h2>5.7. WiFi<a class="headerlink" href="#wifi" title="Permalink to this headline">¶</a></h2>
+<p>[CE 6.0] WiFi networking <em>shall</em> be supported. The following features <em>shall</em>
+work:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Scanning [CE 6.1]</p>
+</li>
+<li><p class="first">Profiles:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Open [CE 6.2]</li>
+<li>WEP [CE 6.3]</li>
+<li>WPA2 [CE 6.4]</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Downloading [CE 6.5]</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="sd-card">
+<h2>5.8. SD card<a class="headerlink" href="#sd-card" title="Permalink to this headline">¶</a></h2>
+<p>[CE 7.0] It <em>shall</em> be possible to use SD card for reading and writing data. SD
+cards <em>should</em> be supported up to SDHC, speed class 10 or UHS class 1.</p>
+</div>
+<div class="section" id="power-cycle">
+<h2>5.9. Power cycle<a class="headerlink" href="#power-cycle" title="Permalink to this headline">¶</a></h2>
+<p>The following actions <em>shall</em> be possible using software:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Shutdown [CE 8.0]</li>
+<li>Reboot [CE 8.1]</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="leds">
+<h2>5.10. LEDs<a class="headerlink" href="#leds" title="Permalink to this headline">¶</a></h2>
+<p>[CE 9.0] It <em>shall</em> be possible to control &#8220;user&#8221; and &#8220;status&#8221; LEDs available
+on the board from software.</p>
+</div>
+<div class="section" id="user-interface">
+<h2>5.11. User interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h2>
+<p>[CE 10.0] Graphical user interface (GUI) software builds <em>shall</em> be provided.</p>
+<p>[CE 10.1] Builds without GUI <em>may</em> be provided.</p>
+<p>The minimal set of components for GUI:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Desktop Environment (for example LXDE)</p>
+</li>
+<li><p class="first">Minimal set of desktop tools</p>
+<blockquote>
+<div><ul class="simple">
+<li>Utilities</li>
+<li>Calculator</li>
+<li>Image Viewer</li>
+<li>Text Editor</li>
+<li>Archive Manager</li>
+<li>Internet Browser</li>
+<li>Network Manager</li>
+<li>System Audio Control</li>
+<li>Music Player</li>
+<li>File Manager</li>
+<li>Process Viewer</li>
+<li>Terminal</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. Consumer Edition Reference Platform</a><ul>
+<li><a class="reference internal" href="#hardware">5.1. Hardware</a></li>
+<li><a class="reference internal" href="#accelerated-graphics-support">5.2. Accelerated graphics support</a></li>
+<li><a class="reference internal" href="#boot">5.3. Boot</a></li>
+<li><a class="reference internal" href="#kernel">5.4. Kernel</a></li>
+<li><a class="reference internal" href="#bluetooth">5.5. Bluetooth</a></li>
+<li><a class="reference internal" href="#usb">5.6. USB</a></li>
+<li><a class="reference internal" href="#wifi">5.7. WiFi</a></li>
+<li><a class="reference internal" href="#sd-card">5.8. SD card</a></li>
+<li><a class="reference internal" href="#power-cycle">5.9. Power cycle</a></li>
+<li><a class="reference internal" href="#leds">5.10. LEDs</a></li>
+<li><a class="reference internal" href="#user-interface">5.11. User interface</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="iot.html" title="previous chapter">4. IoT Reference Platform</a></li>
+      <li>Next: <a href="enterprise.html" title="next chapter">6. Enterprise Edition Reference Platform</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/consumer.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, Linaro Ltd..
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/consumer.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
